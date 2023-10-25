@@ -1,0 +1,152 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{6C007703-1D92-4712-8DB8-C62BA67059A4}</ProjectGuid>
+    <OutputType>library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>DinePlan.Modules.Employee</RootNamespace>
+    <AssemblyName>DinePlan.Modules.Employee</AssemblyName>
+    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <ProjectTypeGuids>{60dc8134-eba5-43b8-bcc9-bb4bc16c2548};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="DPUruNet, Version=1.0.0.1, Culture=neutral, PublicKeyToken=7f32ef930fec5e5f, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Lib\Persona\DPUruNet.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Practices.ServiceLocation">
+      <HintPath>..\Lib\Prism\Microsoft.Practices.ServiceLocation.dll</HintPath>
+    </Reference>
+    <Reference Include="Prism">
+      <HintPath>..\Lib\Prism\Prism.dll</HintPath>
+    </Reference>
+    <Reference Include="Prism.Mef.Wpf">
+      <HintPath>..\Lib\Prism\Prism.Mef.Wpf.dll</HintPath>
+    </Reference>
+    <Reference Include="Prism.Wpf">
+      <HintPath>..\Lib\Prism\Prism.Wpf.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.Composition" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xaml">
+      <RequiredTargetFramework>4.0</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="WindowsBase" />
+    <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="EmployeeModule.cs" />
+    <Compile Include="EmployeeView.xaml.cs">
+      <DependentUpon>EmployeeView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="EmployeeViewModel.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <None Include="app.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <AppDesigner Include="Properties\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\DinePlan.Common.Model\DinePlan.Common.Model.csproj">
+      <Project>{b060fcfc-3fd5-4bf9-af3c-4924ccc77df6}</Project>
+      <Name>DinePlan.Common.Model</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\DinePlan.Common\DinePlan.Common.csproj">
+      <Project>{F285691F-3E49-4CCE-95CA-19348B379C99}</Project>
+      <Name>DinePlan.Common</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\DinePlan.Domain\DinePlan.Domain.csproj">
+      <Project>{2386f6a0-91b2-4d1a-8dbc-92109924affe}</Project>
+      <Name>DinePlan.Domain</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\DinePlan.Infrastructure.Data\DinePlan.Infrastructure.Data.csproj">
+      <Project>{2d64f506-d566-4ca5-a19c-bcb5f9a2e7f4}</Project>
+      <Name>DinePlan.Infrastructure.Data</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\DinePlan.Infrastructure\DinePlan.Infrastructure.csproj">
+      <Project>{b184e8f8-a507-4c3d-b580-184e3776a95c}</Project>
+      <Name>DinePlan.Infrastructure</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\DinePlan.Localization\DinePlan.Localization.csproj">
+      <Project>{406B96A6-C886-4149-AD88-A2402EDB2B90}</Project>
+      <Name>DinePlan.Localization</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\DinePlan.Presentation.Common\DinePlan.Presentation.Common.csproj">
+      <Project>{FE1A894E-D55E-4CEA-980A-1C678A2453FC}</Project>
+      <Name>DinePlan.Presentation.Common</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\DinePlan.Presentation.Controls\DinePlan.Presentation.Controls.csproj">
+      <Project>{3c52b602-3cb1-45ee-b9a7-93b24c760a88}</Project>
+      <Name>DinePlan.Presentation.Controls</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\DinePlan.Presentation.Services\DinePlan.Presentation.Services.csproj">
+      <Project>{7DD8848C-3ADB-45B3-BD49-10AF3AEE2521}</Project>
+      <Name>DinePlan.Presentation.Services</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\DinePlan.Services\DinePlan.Services.csproj">
+      <Project>{413B698C-0D7D-4FCD-9F16-AF51AED4E647}</Project>
+      <Name>DinePlan.Services</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Page Include="EmployeeView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <PropertyGroup>
+    <PostBuildEvent>
+    </PostBuildEvent>
+  </PropertyGroup>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

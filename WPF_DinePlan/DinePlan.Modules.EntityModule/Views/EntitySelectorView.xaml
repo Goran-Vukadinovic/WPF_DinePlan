@@ -1,0 +1,64 @@
+﻿<UserControl x:Class="DinePlan.Modules.EntityModule.Views.EntitySelectorView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:fastButton="clr-namespace:FastButton;assembly=FastButton" mc:Ignorable="d" d:DesignHeight="300"
+             d:DesignWidth="300">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*" />
+            <RowDefinition Height="auto" />
+        </Grid.RowDefinitions>
+        <ItemsControl Grid.Column="0" Grid.Row="0" ItemsSource="{Binding EntityScreenItems}">
+            <ItemsControl.ItemsPanel>
+                <ItemsPanelTemplate>
+                    <UniformGrid Rows="{Binding SelectedEntityScreen.RowCount}" Margin="3"
+                                 Background="{Binding SelectedEntityScreen.BackgroundColor}"
+                                 Columns="{Binding SelectedEntityScreen.ColumnCount}"
+                                 VerticalAlignment="{Binding ScreenVerticalAlignment}" />
+                </ItemsPanelTemplate>
+            </ItemsControl.ItemsPanel>
+            <ItemsControl.ItemTemplate>
+                <DataTemplate>
+                    <Border BorderThickness="2">
+                        <fastButton:FastButton
+                            Name="Table"
+                            Foreground="{Binding ButtonColor, Converter={StaticResource BackgroundToForegroundConverter}}"
+                            Height="{Binding ButtonHeight}" FontSize="{Binding FontSize}"
+                            Style="{StaticResource SecFastButtonStyle}" FontWeight="Light"
+                            ButtonColor="{Binding ButtonColor,Converter={StaticResource NullBrushConverter}}"
+                            IsEnabled="{Binding IsEnabled}"
+                            Command="{Binding DataContext.EntitySelectionCommand, RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type ItemsControl}}}"
+                            CommandParameter="{Binding}">
+                            <Viewbox Stretch="Uniform">
+                                <DockPanel LastChildFill="True">
+                                    <TextBlock Text="{Binding Name}" HorizontalAlignment="Center"
+                                               VerticalAlignment="Center"
+                                               x:Name="PART_Name" />
+
+                                    <TextBlock Text="{Binding Total}" HorizontalAlignment="Center"
+                                               Visibility="{Binding TotalVisibility}"
+                                               VerticalAlignment="Center" FontSize="6"
+                                               x:Name="PART_Total" DockPanel.Dock="Bottom" />
+                                </DockPanel>
+                            </Viewbox>
+                        </fastButton:FastButton>
+                    </Border>
+                    <DataTemplate.Triggers>
+                        <DataTrigger Binding="{Binding Total}" Value="">
+                            <Setter Property="Visibility" Value="Collapsed" TargetName="PART_Total" />
+                        </DataTrigger>
+                    </DataTemplate.Triggers>
+                </DataTemplate>
+            </ItemsControl.ItemTemplate>
+        </ItemsControl>
+        <UniformGrid Grid.Row="1" Grid.Column="0" Columns="2" Rows="1" MaxHeight="60"
+                     Visibility="{Binding IsPageNavigatorVisible,Converter={StaticResource VisibilityConverter}}">
+            <fastButton:FastButton Command="{Binding DecPageNumberCommand}"
+                                   Content="{Binding DecPageNumberCommand.Caption}" />
+            <fastButton:FastButton Margin="3,0" Command="{Binding IncPageNumberCommand}"
+                                   Content="{Binding IncPageNumberCommand.Caption}" />
+        </UniformGrid>
+    </Grid>
+</UserControl>

@@ -1,0 +1,167 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{B060FCFC-3FD5-4BF9-AF3C-4924CCC77DF6}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>DinePlan.Common.Model</RootNamespace>
+    <AssemblyName>DinePlan.Common.Model</AssemblyName>
+    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="API\CustomJsonSerializer.cs" />
+    <Compile Include="Bill\PrintBill.cs" />
+    <Compile Include="Credit\CreditDtos.cs" />
+    <Compile Include="Delivery\DeliverooHead.cs" />
+    <Compile Include="Delivery\DeliveryHero.cs" />
+    <Compile Include="Delivery\GloriaMenu.cs" />
+    <Compile Include="Delivery\DeliveryDtos.cs" />
+    <Compile Include="Delivery\GloriaFood.cs" />
+    <Compile Include="Delivery\GrabObject.cs" />
+    <Compile Include="Delivery\UrbanPiper.cs" />
+    <Compile Include="Department\DepartmentDtos.cs" />
+    <Compile Include="EDine\EDineActions.cs" />
+    <Compile Include="EDine\EDineInputDto.cs" />
+    <Compile Include="EDine\WheelTicketSyncOutputDto.cs" />
+    <Compile Include="EDine\EDineTicketObj.cs" />
+    <Compile Include="EDine\EDineUserLoginObj.cs" />
+    <Compile Include="EDine\TicketEDineObj.cs" />
+    <Compile Include="Export\BaseExcelExportObject.cs" />
+    <Compile Include="IInputDto.cs" />
+    <Compile Include="IOutputDto.cs" />
+    <Compile Include="Member\Redemption.cs" />
+    <Compile Include="Menu\ImportMenu.cs" />
+    <Compile Include="Payment\PaymentFrame.cs" />
+    <Compile Include="Permission\PermissionNames.cs" />
+    <Compile Include="Point\ErrorCodes.cs" />
+    <Compile Include="Point\FlyChangeEntity.cs" />
+    <Compile Include="Point\FlyComboGroup.cs" />
+    <Compile Include="Point\FlyComboResponse.cs" />
+    <Compile Include="Point\FlyDownloadPath.cs" />
+    <Compile Include="Point\FlyEntity.cs" />
+    <Compile Include="Point\FlyError.cs" />
+    <Compile Include="Point\FlyMenu.cs" />
+    <Compile Include="Point\FlyPayDetails.cs" />
+    <Compile Include="Point\FlyPaymentTypes.cs" />
+    <Compile Include="Point\FlySetting.cs" />
+    <Compile Include="Point\FlySoldOut.cs" />
+    <Compile Include="Point\FlyFeedback.cs" />
+    <Compile Include="Point\FlyTicketIdList.cs" />
+    <Compile Include="Point\FlyTicketList.cs" />
+    <Compile Include="Point\FlyTicket.cs" />
+    <Compile Include="Point\FlyUtility.cs" />
+    <Compile Include="Point\ResponseObject.cs" />
+    <Compile Include="PreviewTicket.cs" />
+    <Compile Include="PriceTag\TagPriceOutputDto.cs" />
+    <Compile Include="Promotion\FilterPromotion.cs" />
+    <Compile Include="Queue\PrintQueue.cs" />
+    <Compile Include="Queue\QueueInput.cs" />
+    <Compile Include="Settings\AcDenomination.cs" />
+    <Compile Include="SoldOut\ApiSoldOutDto.cs" />
+    <Compile Include="Syncer\PullTimeInput.cs" />
+    <Compile Include="Sync\ApiCalculation.cs" />
+    <Compile Include="Sync\ApiFutureDateInformationOutput.cs" />
+    <Compile Include="Sync\ApiLanguageOuput.cs" />
+    <Compile Include="Sync\ApiLanguageTextInput.cs" />
+    <Compile Include="Sync\ApiLanguageTextOutput.cs" />
+    <Compile Include="Sync\ApiNumeratorOutput.cs" />
+    <Compile Include="Sync\ApiPrinterOutput.cs" />
+    <Compile Include="Sync\ApiListOuttput.cs" />
+    <Compile Include="Sync\ApiProgramSettings.cs" />
+    <Compile Include="Sync\ApiReservationOutput.cs" />
+    <Compile Include="Sync\ApiScreenOutput.cs" />
+    <Compile Include="Sync\ApiTicketTypeOutput.cs" />
+    <Compile Include="Sync\ApiTickMessageOuput.cs" />
+    <Compile Include="Sync\ApiTillAccountOutput.cs" />
+    <Compile Include="Sync\Audit.cs" />
+    <Compile Include="Sync\AuthRequest.cs" />
+    <Compile Include="Sync\CategoryInput.cs" />
+    <Compile Include="Sync\CategoryListDto.cs" />
+    <Compile Include="Sync\ClockDtos.cs" />
+    <Compile Include="Sync\ComboboxItemDto.cs" />
+    <Compile Include="Sync\ConnectRequests.cs" />
+    <Compile Include="Sync\ConnectResponse.cs" />
+    <Compile Include="Sync\ApiMenuOutput.cs" />
+    <Compile Include="Sync\DineChefAppSettings.cs" />
+    <Compile Include="Sync\DineConnectApiResponse.cs" />
+    <Compile Include="Sync\DineQueueAppSettings.cs" />
+    <Compile Include="Sync\GrabOrderChangeRequest.cs" />
+    <Compile Include="Sync\CourseApiDtos.cs" />
+    <Compile Include="Sync\SyncConstants.cs" />
+    <Compile Include="Sync\TerminalList.cs" />
+    <Compile Include="Sync\PlanReasonList.cs" />
+    <Compile Include="Sync\ForiegnCurrencyList.cs" />
+    <Compile Include="Sync\PlanLoggerDtos.cs" />
+    <Compile Include="Sync\PromotionDtos.cs" />
+    <Compile Include="Sync\SyncDtos.cs" />
+    <Compile Include="Sync\SyncerDto.cs" />
+    <Compile Include="Sync\TaxInvoiceDto.cs" />
+    <Compile Include="Sync\WorkPeriodInputDto.cs" />
+    <Compile Include="Sync\TransactionTypeListOutputDto.cs" />
+    <Compile Include="Sync\PaymentTypeListOutputDto.cs" />
+    <Compile Include="Sync\MenuItemDto.cs" />
+    <Compile Include="Sync\SyncAccountObject.cs" />
+    <Compile Include="Sync\SyncPaymentObject.cs" />
+    <Compile Include="Sync\MenuInputDto.cs" />
+    <Compile Include="Sync\TicketInputDto.cs" />
+    <Compile Include="Sync\TicketOutputDto.cs" />
+    <Compile Include="Table\ApiConnectTableGroup.cs" />
+    <Compile Include="TabSquare\PullSquareToken.cs" />
+    <Compile Include="TabSquare\TabSquareResponse.cs" />
+    <Compile Include="Tax\APIGetAllTaxMember.cs" />
+    <Compile Include="Tax\ApiTaxOutputList.cs" />
+    <Compile Include="Ticket\Location.cs" />
+    <Compile Include="Ticket\TicketReferenceDto.cs" />
+    <Compile Include="Tick\TickDtos.cs" />
+    <Compile Include="User\UserDtos.cs" />
+    <Compile Include="Utility\DialogActionCallback.cs" />
+    <Compile Include="Utility\FileData.cs" />
+    <Compile Include="Voucher\ValidaVoucherDto.cs" />
+    <Compile Include="WorkPeriodSalesInformation.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="Newtonsoft.Json">
+      <Version>12.0.3</Version>
+    </PackageReference>
+    <PackageReference Include="RestSharp">
+      <Version>105.2.3</Version>
+    </PackageReference>
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

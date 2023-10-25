@@ -1,0 +1,389 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{0C2B6973-E2C6-4076-9828-EBE0E81405A6}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>DinePlan.Modules.EntityModule</RootNamespace>
+    <AssemblyName>DinePlan.Modules.EntityModule</AssemblyName>
+    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile>
+    </TargetFrameworkProfile>
+    <SolutionDir Condition="$(SolutionDir) == '' Or $(SolutionDir) == '*Undefined*'">..\</SolutionDir>
+    <RestorePackages>true</RestorePackages>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <ItemGroup>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="ActionProcessors\CreateEntity.cs" />
+    <Compile Include="ActionProcessors\PrintEntity.cs" />
+    <Compile Include="ActionProcessors\UdpateEntityData.cs" />
+    <Compile Include="ActionProcessors\UpdateEntityState.cs" />
+    <Compile Include="Views\EntityCustomDataEditor.xaml.cs">
+      <DependentUpon>EntityCustomDataEditor.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ViewModel\EntityCustomDataViewModel.cs" />
+    <Compile Include="ViewModel\EntityCustomFieldViewModel.cs" />
+    <Compile Include="Views\EntityDashboardView.xaml.cs">
+      <DependentUpon>EntityDashboardView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ViewModel\EntityDashboardViewModel.cs" />
+    <Compile Include="Views\EntityEditorView.xaml.cs">
+      <DependentUpon>EntityEditorView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ViewModel\EntityEditorViewModel.cs" />
+    <Compile Include="Views\BatchEntityEditorView.xaml.cs">
+      <DependentUpon>BatchEntityEditorView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ViewModel\BatchEntityEditorViewModel.cs" />
+    <Compile Include="EntityModule.cs" />
+    <Compile Include="ViewModel\EntityScreenItemViewModel.cs" />
+    <Compile Include="Views\EntityScreenView.xaml.cs">
+      <DependentUpon>EntityScreenView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ViewModel\EntityScreenViewModel.cs" />
+    <Compile Include="ViewModel\EntitySearchResultViewModel.cs" />
+    <Compile Include="Views\EntitySearchView.xaml.cs">
+      <DependentUpon>EntitySearchView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ViewModel\EntitySearchViewModel.cs" />
+    <Compile Include="Views\EntitySelectorView.xaml.cs">
+      <DependentUpon>EntitySelectorView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ViewModel\EntitySelectorViewModel.cs" />
+    <Compile Include="ViewModel\EntitySwitcherButtonViewModel.cs" />
+    <Compile Include="Views\EntitySwitcherView.xaml.cs">
+      <DependentUpon>EntitySwitcherView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ViewModel\EntitySwitcherViewModel.cs" />
+    <Compile Include="Views\EntityTypeView.xaml.cs">
+      <DependentUpon>EntityTypeView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ViewModel\EntityTypeViewModel.cs" />
+    <Compile Include="Views\EntityView.xaml.cs">
+      <DependentUpon>EntityView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ViewModel\EntityViewModel.cs" />
+    <Compile Include="Other\IEntityWidget.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+      <DependentUpon>Settings.settings</DependentUpon>
+    </Compile>
+    <Compile Include="Other\EntityCustomFieldTemplateSelector.cs" />
+    <Compile Include="Widgets\EntityButton\EntityButtonWidgetCreator.cs" />
+    <Compile Include="Widgets\EntityButton\EntityButtonWidgetSettings.cs" />
+    <Compile Include="Widgets\EntityButton\EntityButtonWidgetViewModel.cs" />
+    <Compile Include="Widgets\EntityGrid\EntityGridWidgetCreator.cs" />
+    <Compile Include="Widgets\EntityGrid\EntityGridWidgetSettings.cs" />
+    <Compile Include="Widgets\EntityGrid\EntityGridWidgetViewModel.cs" />
+    <Compile Include="Widgets\EntitySearch\EntitySearchWidgetCreator.cs" />
+    <Compile Include="Widgets\EntitySearch\EntitySearchWidgetSettings.cs" />
+    <Compile Include="Widgets\EntitySearch\EntitySearchWidgetViewModel.cs" />
+  </ItemGroup>
+  <ItemGroup>
+  </ItemGroup>
+  <ItemGroup>
+  </ItemGroup>
+  <ItemGroup>
+  </ItemGroup>
+  <ItemGroup>
+  </ItemGroup>
+  <ItemGroup>
+  </ItemGroup>
+  <ItemGroup>
+  </ItemGroup>
+  <ItemGroup>
+  </ItemGroup>
+  <ItemGroup>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\DinePlan.Common.Model\DinePlan.Common.Model.csproj">
+      <Project>{B060FCFC-3FD5-4BF9-AF3C-4924CCC77DF6}</Project>
+      <Name>DinePlan.Common.Model</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\DinePlan.Common\DinePlan.Common.csproj">
+      <Project>{F285691F-3E49-4CCE-95CA-19348B379C99}</Project>
+      <Name>DinePlan.Common</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\DinePlan.Domain\DinePlan.Domain.csproj">
+      <Project>{2386f6a0-91b2-4d1a-8dbc-92109924affe}</Project>
+      <Name>DinePlan.Domain</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\DinePlan.Infrastructure.Data\DinePlan.Infrastructure.Data.csproj">
+      <Project>{2d64f506-d566-4ca5-a19c-bcb5f9a2e7f4}</Project>
+      <Name>DinePlan.Infrastructure.Data</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\DinePlan.Infrastructure\DinePlan.Infrastructure.csproj">
+      <Project>{b184e8f8-a507-4c3d-b580-184e3776a95c}</Project>
+      <Name>DinePlan.Infrastructure</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\DinePlan.Localization\DinePlan.Localization.csproj">
+      <Project>{406b96a6-c886-4149-ad88-a2402edb2b90}</Project>
+      <Name>DinePlan.Localization</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\DinePlan.Persistance\DinePlan.Persistance.csproj">
+      <Project>{9aca7797-5c2a-4435-b991-e59462acdaf6}</Project>
+      <Name>DinePlan.Persistance</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\DinePlan.Presentation.Common\DinePlan.Presentation.Common.csproj">
+      <Project>{fe1a894e-d55e-4cea-980a-1c678a2453fc}</Project>
+      <Name>DinePlan.Presentation.Common</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\DinePlan.Presentation.Services\DinePlan.Presentation.Services.csproj">
+      <Project>{7dd8848c-3adb-45b3-bd49-10af3aee2521}</Project>
+      <Name>DinePlan.Presentation.Services</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\DinePlan.Presentation.ViewModels\DinePlan.Presentation.ViewModels.csproj">
+      <Project>{04ed7be0-8768-4a8d-b1ed-c92cb60789ef}</Project>
+      <Name>DinePlan.Presentation.ViewModels</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\DinePlan.Services\DinePlan.Services.csproj">
+      <Project>{413b698c-0d7d-4fcd-9f16-af51aed4e647}</Project>
+      <Name>DinePlan.Services</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Lib\FastButton\FastButton.csproj">
+      <Project>{7519CB8C-3C25-4F74-8946-93ECB7450C31}</Project>
+      <Name>FastButton</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Lib\FlexButton\FlexButton.csproj">
+      <Project>{434D497A-D439-44C8-84A5-5301B572708F}</Project>
+      <Name>FlexButton</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\DinePlan.Presentation.Controls\DinePlan.Presentation.Controls.csproj">
+      <Project>{3C52B602-3CB1-45EE-B9A7-93B24C760A88}</Project>
+      <Name>DinePlan.Presentation.Controls</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="app.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="Extended.Wpf.Toolkit">
+      <Version>2.5.0</Version>
+    </PackageReference>
+    <PackageReference Include="Humanizer">
+      <Version>1.37.7</Version>
+    </PackageReference>
+    <PackageReference Include="MahApps.Metro">
+      <Version>1.6.5</Version>
+    </PackageReference>
+    <PackageReference Include="MahApps.Metro.IconPacks">
+      <Version>2.3.0</Version>
+    </PackageReference>
+    <PackageReference Include="Newtonsoft.Json">
+      <Version>12.0.3</Version>
+    </PackageReference>
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <PropertyGroup>
+    <PostBuildEvent>
+    </PostBuildEvent>
+  </PropertyGroup>
+  <Import Project="$(SolutionDir)\.nuget\NuGet.targets" Condition="Exists('$(SolutionDir)\.nuget\NuGet.targets')" />
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Enable NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('$(SolutionDir)\.nuget\NuGet.targets')" Text="$([System.String]::Format('$(ErrorText)', '$(SolutionDir)\.nuget\NuGet.targets'))" />
+  </Target>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+  <ItemGroup>
+    <ReferencePath Include="C:\Users\hasan\.nuget\packages\args\1.1.2\lib\Net40\Args.dll" />
+    <ReferencePath Include="C:\Users\hasan\.nuget\packages\autoclosingmessagebox\1.0.0.1\lib\net40\AutoClosingMessageBox.dll" />
+    <ReferencePath Include="C:\Users\hasan\.nuget\packages\bugsnag\1.4.0\lib\Net45\Bugsnag.dll" />
+    <ReferencePath Include="C:\Users\hasan\.nuget\packages\castle.dynamiclinqquerybuilder\1.0.5\lib\Castle.DynamicLinqQueryBuilder.dll" />
+    <ReferencePath Include="C:\Users\hasan\.nuget\packages\microsoft.clearscript\6.0.0\lib\net45\ClearScript.dll" />
+    <ReferencePath Include="C:\Users\hasan\.nuget\packages\controlzex\3.0.2.4\lib\net45\ControlzEx.dll" />
+    <ReferencePath Include="C:\Users\hasan\.nuget\packages\csvhelper\12.1.0\lib\net45\CsvHelper.dll" />
+    <ReferencePath Include="C:\Users\hasan\.nuget\packages\dapper.contrib\1.50.0\lib\net45\Dapper.Contrib.dll" />
+    <ReferencePath Include="C:\Users\hasan\.nuget\packages\dapper\1.50.2\lib\net451\Dapper.dll" />
+    <ReferencePath Include="C:\Users\hasan\.nuget\packages\dapper.entityframework\1.50.2\lib\net45\Dapper.EntityFramework.dll" />
+    <ReferencePath Include="C:\Users\hasan\.nuget\packages\databaseminder\1.0.4\lib\DatabaseMinder.dll" />
+    <ReferencePath Include="C:\_Work\DinePlan\Code\DinePlan\Trunk\Base\DinePlan\DinePlan.Common\bin\Debug\DinePlan.Common.dll" />
+    <ReferencePath Include="C:\_Work\DinePlan\Code\DinePlan\Trunk\Base\DinePlan\DinePlan.Common.Model\bin\Debug\DinePlan.Common.Model.dll" />
+    <ReferencePath Include="C:\_Work\DinePlan\Code\DinePlan\Trunk\Base\DinePlan\DinePlan.Domain\bin\Debug\DinePlan.Domain.dll" />
+    <ReferencePath Include="C:\_Work\DinePlan\Code\DinePlan\Trunk\Base\DinePlan\DinePlan.Infrastructure.Data\bin\Debug\DinePlan.Infrastructure.Data.dll" />
+    <ReferencePath Include="C:\_Work\DinePlan\Code\DinePlan\Trunk\Base\DinePlan\DinePlan.Infrastructure\bin\Debug\DinePlan.Infrastructure.dll" />
+    <ReferencePath Include="C:\_Work\DinePlan\Code\DinePlan\Trunk\Base\DinePlan\DinePlan.Localization\bin\Debug\DinePlan.Localization.dll" />
+    <ReferencePath Include="C:\_Work\DinePlan\Code\DinePlan\Trunk\Base\DinePlan\DinePlan.Persistance\bin\Debug\DinePlan.Persistance.dll" />
+    <ReferencePath Include="C:\_Work\DinePlan\Code\DinePlan\Trunk\Base\DinePlan\DinePlan.Presentation.Common\bin\Debug\DinePlan.Presentation.Common.dll" />
+    <ReferencePath Include="C:\_Work\DinePlan\Code\DinePlan\Trunk\Base\DinePlan\DinePlan.Presentation.Controls\bin\Debug\DinePlan.Presentation.Controls.dll" />
+    <ReferencePath Include="C:\_Work\DinePlan\Code\DinePlan\Trunk\Base\DinePlan\DinePlan.Presentation.Services\bin\Debug\DinePlan.Presentation.Services.dll" />
+    <ReferencePath Include="C:\_Work\DinePlan\Code\DinePlan\Trunk\Base\DinePlan\DinePlan.Presentation.ViewModels\bin\Debug\DinePlan.Presentation.ViewModels.dll" />
+    <ReferencePath Include="C:\_Work\DinePlan\Code\DinePlan\Trunk\Base\DinePlan\DinePlan.Services\bin\Debug\DinePlan.Services.dll" />
+    <ReferencePath Include="C:\Users\hasan\.nuget\packages\dotnetzip\1.16.0\lib\net40\DotNetZip.dll" />
+    <ReferencePath Include="C:\Users\hasan\.nuget\packages\entityframework\6.3.0\lib\net45\EntityFramework.dll" />
+    <ReferencePath Include="C:\Users\hasan\.nuget\packages\entityframework\6.3.0\lib\net45\EntityFramework.SqlServer.dll" />
+    <ReferencePath Include="C:\Users\hasan\.nuget\packages\entityframework.sqlservercompact\6.2.0\lib\net45\EntityFramework.SqlServerCompact.dll" />
+    <ReferencePath Include="C:\Users\hasan\.nuget\packages\epplus\4.0.4\lib\net20\EPPlus.dll" />
+    <ReferencePath Include="C:\Users\hasan\.nuget\packages\exceldatareader\2.1.2.3\lib\net45\Excel.dll" />
+    <ReferencePath Include="C:\_Work\DinePlan\Code\DinePlan\Trunk\Base\DinePlan\Lib\FastButton\bin\Debug\FastButton.dll" />
+    <ReferencePath Include="C:\_Work\DinePlan\Code\DinePlan\Trunk\Base\DinePlan\Lib\FlexButton\bin\Debug\FlexButton.dll" />
+    <ReferencePath Include="C:\Users\hasan\.nuget\packages\fluent.ribbon\3.4.0\lib\net45\Fluent.dll" />
+    <ReferencePath Include="C:\Users\hasan\.nuget\packages\fluentftp\31.3.1\lib\net45\FluentFTP.dll" />
+    <ReferencePath Include="C:\_Work\DinePlan\Code\DinePlan\Trunk\Base\DinePlan\Lib\FluentValidation.dll" />
+    <ReferencePath Include="C:\Users\hasan\.nuget\packages\humanizer.core\2.2.0\lib\netstandard1.0\Humanizer.dll" />
+    <ReferencePath Include="C:\Users\hasan\.nuget\packages\sharpziplib\0.86.0\lib\20\ICSharpCode.SharpZipLib.dll" />
+    <ReferencePath Include="C:\Users\hasan\.nuget\packages\efinteractiveviews\1.1.0\lib\net45\InteractivePreGeneratedViews.dll" />
+    <ReferencePath Include="C:\Users\hasan\.nuget\packages\mahapps.metro\1.6.5\lib\net45\MahApps.Metro.dll" />
+    <ReferencePath Include="C:\Users\hasan\.nuget\packages\mahapps.metro.iconpacks\2.3.0\lib\net45\MahApps.Metro.IconPacks.dll" />
+    <ReferencePath Include="C:\Users\hasan\.nuget\packages\microsoft.aspnet.identity.core\2.2.3\lib\net45\Microsoft.AspNet.Identity.Core.dll" />
+    <ReferencePath Include="C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.5.2\Microsoft.CSharp.dll" />
+    <ReferencePath Include="C:\Users\hasan\.nuget\packages\microsoft.office.interop.excel\15.0.4795.1000\lib\net20\Microsoft.Office.Interop.Excel.dll" />
+    <ReferencePath Include="C:\Users\hasan\.nuget\packages\microsoft.office.interop.word\15.0.4797.1003\lib\net20\Microsoft.Office.Interop.Word.dll" />
+    <ReferencePath Include="C:\Users\hasan\.nuget\packages\commonservicelocator\1.3.0\lib\portable-net4+sl5+netcore45+wpa81+wp8\Microsoft.Practices.ServiceLocation.dll" />
+    <ReferencePath Include="C:\Users\hasan\.nuget\packages\unofficial.microsoft.sqlserver.smo.2014\12.0.2000.8\lib\Microsoft.SqlServer.ConnectionInfo.dll" />
+    <ReferencePath Include="C:\Users\hasan\.nuget\packages\unofficial.microsoft.sqlserver.smo.2014\12.0.2000.8\lib\Microsoft.SqlServer.ConnectionInfoExtended.dll" />
+    <ReferencePath Include="C:\Users\hasan\.nuget\packages\unofficial.microsoft.sqlserver.smo.2014\12.0.2000.8\lib\Microsoft.SqlServer.Management.Sdk.Sfc.dll" />
+    <ReferencePath Include="C:\Users\hasan\.nuget\packages\unofficial.microsoft.sqlserver.smo.2014\12.0.2000.8\lib\Microsoft.SqlServer.Smo.dll" />
+    <ReferencePath Include="C:\Users\hasan\.nuget\packages\unofficial.microsoft.sqlserver.smo.2014\12.0.2000.8\lib\Microsoft.SqlServer.SmoExtended.dll" />
+    <ReferencePath Include="C:\Users\hasan\.nuget\packages\unofficial.microsoft.sqlserver.smo.2014\12.0.2000.8\lib\Microsoft.SqlServer.SqlClrProvider.dll" />
+    <ReferencePath Include="C:\Users\hasan\.nuget\packages\unofficial.microsoft.sqlserver.smo.2014\12.0.2000.8\lib\Microsoft.SqlServer.SqlEnum.dll" />
+    <ReferencePath Include="C:\Users\hasan\.nuget\packages\microsoft.sqlserver.types\11.0.2\lib\net20\Microsoft.SqlServer.Types.dll" />
+    <ReferencePath Include="C:\Users\hasan\.nuget\packages\microsoft.xaml.behaviors.wpf\1.1.39\lib\net45\Microsoft.Xaml.Behaviors.dll" />
+    <ReferencePath Include="C:\Users\hasan\.nuget\packages\moonpdflib-x86\0.3.0\lib\MoonPdfLib.dll" />
+    <ReferencePath Include="C:\Users\hasan\.nuget\packages\moonpdflib-x86\0.3.0\lib\MouseKeyboardActivityMonitor.dll" />
+    <ReferencePath Include="C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.5.2\mscorlib.dll" />
+    <ReferencePath Include="C:\Users\hasan\.nuget\packages\ncalc\1.3.8\lib\NCalc.dll" />
+    <ReferencePath Include="C:\Users\hasan\.nuget\packages\newtonsoft.json\12.0.3\lib\net45\Newtonsoft.Json.dll" />
+    <ReferencePath Include="C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.5.2\PresentationCore.dll" />
+    <ReferencePath Include="C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.5.2\PresentationFramework.dll" />
+    <ReferencePath Include="C:\_Work\DinePlan\Code\DinePlan\Trunk\Base\DinePlan\Lib\Prism\Prism.dll" />
+    <ReferencePath Include="C:\_Work\DinePlan\Code\DinePlan\Trunk\Base\DinePlan\Lib\Prism\Prism.Mef.Wpf.dll" />
+    <ReferencePath Include="C:\_Work\DinePlan\Code\DinePlan\Trunk\Base\DinePlan\Lib\Prism\Prism.Wpf.dll" />
+    <ReferencePath Include="C:\_Work\DinePlan\Code\DinePlan\Trunk\Base\DinePlan\Lib\PropertyTools.Wpf.dll" />
+    <ReferencePath Include="C:\Users\hasan\.nuget\packages\rabbitmq.client\3.6.9\lib\net45\RabbitMQ.Client.dll" />
+    <ReferencePath Include="C:\Users\hasan\.nuget\packages\ssh.net\2016.1.0\lib\net40\Renci.SshNet.dll" />
+    <ReferencePath Include="C:\Users\hasan\.nuget\packages\restsharp\105.2.3\lib\net452\RestSharp.dll" />
+    <ReferencePath Include="C:\Users\hasan\.nuget\packages\serilog\2.3.0\lib\net45\Serilog.dll" />
+    <ReferencePath Include="C:\Users\hasan\.nuget\packages\serilog.sinks.file\3.2.0\lib\net45\Serilog.Sinks.File.dll" />
+    <ReferencePath Include="C:\Users\hasan\.nuget\packages\serilog.sinks.rollingfile\3.3.0\lib\net45\Serilog.Sinks.RollingFile.dll" />
+    <ReferencePath Include="C:\Users\hasan\.nuget\packages\serilog.sinks.rollingfilealternate\2.0.9\lib\net451\Serilog.Sinks.RollingFileAlternate.dll" />
+    <ReferencePath Include="C:\Users\hasan\.nuget\packages\slapper.automapper\1.0.0.9\lib\Slapper.dll" />
+    <ReferencePath Include="C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.5.2\System.ComponentModel.Composition.dll" />
+    <ReferencePath Include="C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.5.2\System.ComponentModel.DataAnnotations.dll" />
+    <ReferencePath Include="C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.5.2\System.Configuration.dll" />
+    <ReferencePath Include="C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.5.2\System.Core.dll" />
+    <ReferencePath Include="C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.5.2\System.Data.dll" />
+    <ReferencePath Include="C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.5.2\System.Data.Linq.dll" />
+    <ReferencePath Include="C:\Users\hasan\.nuget\packages\microsoft.sqlserver.compact\4.0.8876.1\lib\net40\System.Data.SqlServerCe.dll" />
+    <ReferencePath Include="C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.5.2\System.dll" />
+    <ReferencePath Include="C:\Users\hasan\.nuget\packages\system.valuetuple\4.4.0\ref\portable-net40+sl4+win8+wp8\System.ValueTuple.dll" />
+    <ReferencePath Include="C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.5.2\System.Web.dll" />
+    <ReferencePath Include="C:\Users\hasan\.nuget\packages\fluent.ribbon\3.4.0\lib\net45\System.Windows.Interactivity.dll" />
+    <ReferencePath Include="C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.5.2\System.Xaml.dll" />
+    <ReferencePath Include="C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.5.2\System.Xml.dll" />
+    <ReferencePath Include="C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.5.2\System.Xml.Linq.dll" />
+    <ReferencePath Include="C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.5.2\WindowsBase.dll" />
+    <ReferencePath Include="C:\Users\hasan\.nuget\packages\inputsimulator\1.0.4\lib\net20\WindowsInput.dll" />
+    <ReferencePath Include="C:\Users\hasan\.nuget\packages\extended.wpf.toolkit\2.5.0\lib\net40\Xceed.Wpf.AvalonDock.dll" />
+    <ReferencePath Include="C:\Users\hasan\.nuget\packages\extended.wpf.toolkit\2.5.0\lib\net40\Xceed.Wpf.AvalonDock.Themes.Aero.dll" />
+    <ReferencePath Include="C:\Users\hasan\.nuget\packages\extended.wpf.toolkit\2.5.0\lib\net40\Xceed.Wpf.AvalonDock.Themes.Metro.dll" />
+    <ReferencePath Include="C:\Users\hasan\.nuget\packages\extended.wpf.toolkit\2.5.0\lib\net40\Xceed.Wpf.AvalonDock.Themes.VS2010.dll" />
+    <ReferencePath Include="C:\Users\hasan\.nuget\packages\extended.wpf.toolkit\2.5.0\lib\net40\Xceed.Wpf.DataGrid.dll" />
+    <ReferencePath Include="C:\Users\hasan\.nuget\packages\extended.wpf.toolkit\2.5.0\lib\net40\Xceed.Wpf.Toolkit.dll" />
+    <ReferencePath Include="C:\Users\hasan\.nuget\packages\z.entityframework.plus.ef6\1.7.2\lib\net45\Z.EntityFramework.Plus.EF6.dll" />
+    <ReferencePath Include="C:\Users\hasan\.nuget\packages\zxing.net\0.14.0.1\lib\net40\zxing.dll" />
+    <ReferencePath Include="C:\Users\hasan\.nuget\packages\zxing.net\0.14.0.1\lib\net40\zxing.presentation.dll" />
+    <ReferencePath Include="C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.5.2\Facades\System.Collections.Concurrent.dll" />
+    <ReferencePath Include="C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.5.2\Facades\System.Collections.dll" />
+    <ReferencePath Include="C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.5.2\Facades\System.ComponentModel.Annotations.dll" />
+    <ReferencePath Include="C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.5.2\Facades\System.ComponentModel.dll" />
+    <ReferencePath Include="C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.5.2\Facades\System.ComponentModel.EventBasedAsync.dll" />
+    <ReferencePath Include="C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.5.2\Facades\System.Diagnostics.Contracts.dll" />
+    <ReferencePath Include="C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.5.2\Facades\System.Diagnostics.Debug.dll" />
+    <ReferencePath Include="C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.5.2\Facades\System.Diagnostics.Tools.dll" />
+    <ReferencePath Include="C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.5.2\Facades\System.Diagnostics.Tracing.dll" />
+    <ReferencePath Include="C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.5.2\Facades\System.Dynamic.Runtime.dll" />
+    <ReferencePath Include="C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.5.2\Facades\System.Globalization.dll" />
+    <ReferencePath Include="C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.5.2\Facades\System.IO.dll" />
+    <ReferencePath Include="C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.5.2\Facades\System.Linq.dll" />
+    <ReferencePath Include="C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.5.2\Facades\System.Linq.Expressions.dll" />
+    <ReferencePath Include="C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.5.2\Facades\System.Linq.Parallel.dll" />
+    <ReferencePath Include="C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.5.2\Facades\System.Linq.Queryable.dll" />
+    <ReferencePath Include="C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.5.2\Facades\System.Net.NetworkInformation.dll" />
+    <ReferencePath Include="C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.5.2\Facades\System.Net.Primitives.dll" />
+    <ReferencePath Include="C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.5.2\Facades\System.Net.Requests.dll" />
+    <ReferencePath Include="C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.5.2\Facades\System.ObjectModel.dll" />
+    <ReferencePath Include="C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.5.2\Facades\System.Reflection.dll" />
+    <ReferencePath Include="C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.5.2\Facades\System.Reflection.Emit.dll" />
+    <ReferencePath Include="C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.5.2\Facades\System.Reflection.Emit.ILGeneration.dll" />
+    <ReferencePath Include="C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.5.2\Facades\System.Reflection.Emit.Lightweight.dll" />
+    <ReferencePath Include="C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.5.2\Facades\System.Reflection.Extensions.dll" />
+    <ReferencePath Include="C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.5.2\Facades\System.Reflection.Primitives.dll" />
+    <ReferencePath Include="C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.5.2\Facades\System.Resources.ResourceManager.dll" />
+    <ReferencePath Include="C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.5.2\Facades\System.Runtime.dll" />
+    <ReferencePath Include="C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.5.2\Facades\System.Runtime.Extensions.dll" />
+    <ReferencePath Include="C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.5.2\Facades\System.Runtime.InteropServices.dll" />
+    <ReferencePath Include="C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.5.2\Facades\System.Runtime.InteropServices.WindowsRuntime.dll" />
+    <ReferencePath Include="C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.5.2\Facades\System.Runtime.Numerics.dll" />
+    <ReferencePath Include="C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.5.2\Facades\System.Runtime.Serialization.Json.dll" />
+    <ReferencePath Include="C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.5.2\Facades\System.Runtime.Serialization.Primitives.dll" />
+    <ReferencePath Include="C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.5.2\Facades\System.Runtime.Serialization.Xml.dll" />
+    <ReferencePath Include="C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.5.2\Facades\System.Security.Principal.dll" />
+    <ReferencePath Include="C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.5.2\Facades\System.ServiceModel.Duplex.dll" />
+    <ReferencePath Include="C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.5.2\Facades\System.ServiceModel.Http.dll" />
+    <ReferencePath Include="C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.5.2\Facades\System.ServiceModel.NetTcp.dll" />
+    <ReferencePath Include="C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.5.2\Facades\System.ServiceModel.Primitives.dll" />
+    <ReferencePath Include="C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.5.2\Facades\System.ServiceModel.Security.dll" />
+    <ReferencePath Include="C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.5.2\Facades\System.Text.Encoding.dll" />
+    <ReferencePath Include="C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.5.2\Facades\System.Text.Encoding.Extensions.dll" />
+    <ReferencePath Include="C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.5.2\Facades\System.Text.RegularExpressions.dll" />
+    <ReferencePath Include="C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.5.2\Facades\System.Threading.dll" />
+    <ReferencePath Include="C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.5.2\Facades\System.Threading.Tasks.dll" />
+    <ReferencePath Include="C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.5.2\Facades\System.Threading.Tasks.Parallel.dll" />
+    <ReferencePath Include="C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.5.2\Facades\System.Threading.Timer.dll" />
+    <ReferencePath Include="C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.5.2\Facades\System.Xml.ReaderWriter.dll" />
+    <ReferencePath Include="C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.5.2\Facades\System.Xml.XDocument.dll" />
+    <ReferencePath Include="C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.5.2\Facades\System.Xml.XmlSerializer.dll" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="C:\_Work\DinePlan\Code\DinePlan\Trunk\Base\DinePlan\DinePlan.Modules.EntityModule\obj\Debug\Views\EntityCustomDataEditor.g.cs" />
+    <Compile Include="C:\_Work\DinePlan\Code\DinePlan\Trunk\Base\DinePlan\DinePlan.Modules.EntityModule\obj\Debug\Views\EntityDashboardView.g.cs" />
+    <Compile Include="C:\_Work\DinePlan\Code\DinePlan\Trunk\Base\DinePlan\DinePlan.Modules.EntityModule\obj\Debug\Views\EntityEditorView.g.cs" />
+    <Compile Include="C:\_Work\DinePlan\Code\DinePlan\Trunk\Base\DinePlan\DinePlan.Modules.EntityModule\obj\Debug\Views\BatchEntityEditorView.g.cs" />
+    <Compile Include="C:\_Work\DinePlan\Code\DinePlan\Trunk\Base\DinePlan\DinePlan.Modules.EntityModule\obj\Debug\Views\EntityScreenView.g.cs" />
+    <Compile Include="C:\_Work\DinePlan\Code\DinePlan\Trunk\Base\DinePlan\DinePlan.Modules.EntityModule\obj\Debug\Views\EntitySearchView.g.cs" />
+    <Compile Include="C:\_Work\DinePlan\Code\DinePlan\Trunk\Base\DinePlan\DinePlan.Modules.EntityModule\obj\Debug\Views\EntitySelectorView.g.cs" />
+    <Compile Include="C:\_Work\DinePlan\Code\DinePlan\Trunk\Base\DinePlan\DinePlan.Modules.EntityModule\obj\Debug\Views\EntitySwitcherView.g.cs" />
+    <Compile Include="C:\_Work\DinePlan\Code\DinePlan\Trunk\Base\DinePlan\DinePlan.Modules.EntityModule\obj\Debug\Views\EntityTypeView.g.cs" />
+    <Compile Include="C:\_Work\DinePlan\Code\DinePlan\Trunk\Base\DinePlan\DinePlan.Modules.EntityModule\obj\Debug\Views\EntityView.g.cs" />
+    <Compile Include="C:\_Work\DinePlan\Code\DinePlan\Trunk\Base\DinePlan\DinePlan.Modules.EntityModule\obj\Debug\GeneratedInternalTypeHelper.g.cs" />
+  </ItemGroup>
+</Project>

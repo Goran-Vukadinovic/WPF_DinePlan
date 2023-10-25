@@ -1,0 +1,151 @@
+﻿<UserControl x:Class="DinePlan.Modules.Employee.EmployeeView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:controls="clr-namespace:DinePlan.Presentation.Controls.UIControls;assembly=DinePlan.Presentation.Controls"
+             Foreground="{DynamicResource ThemeBrush}" Background="Transparent"
+             FontSize="{DynamicResource FontSizeL}">
+    <UserControl.Resources>
+        <Style TargetType="{x:Type Button}" BasedOn="{StaticResource ManagementButtonStyle}">
+            <Setter Property="MinHeight" Value="150" />
+            <Setter Property="MinWidth" Value="150" />
+        </Style>
+        <Style TargetType="{x:Type Button}" BasedOn="{StaticResource ManagementButtonStyle}" x:Key="KeboardButton">
+            <Setter Property="MinHeight" Value="80" />
+            <Setter Property="MinWidth" Value="80" />
+        </Style>
+        <Style TargetType="{x:Type Button}" BasedOn="{StaticResource ManagementButtonStyle}" x:Key="ControlButton">
+            <Setter Property="Height" Value="80" />
+            <Setter Property="Width" Value="80" />
+            <Setter Property="Margin" Value="{DynamicResource ItemMarginS}" />
+            <Setter Property="Padding" Value="{DynamicResource PanelMargin}" />
+            <Setter Property="Foreground" Value="White" />
+            <Setter Property="BorderBrush" Value="{DynamicResource ThemeBrush}" />
+            <Setter Property="Background" Value="Transparent" />
+            <Setter Property="BorderThickness" Value="0" />
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate>
+                        <Grid>
+                            <Border Background="{TemplateBinding Background}"
+                                    BorderBrush="{TemplateBinding BorderBrush}"
+                                    BorderThickness="{TemplateBinding BorderThickness}" />
+                            <Border Background="{DynamicResource ThemeBrush}"
+                                    BorderBrush="{TemplateBinding BorderBrush}"
+                                    BorderThickness="{TemplateBinding BorderThickness}" x:Name="Hover" Opacity="0" />
+
+                            <TextBlock Text="{Binding Content, RelativeSource={RelativeSource Mode=TemplatedParent}}"
+                                       TextWrapping="Wrap" HorizontalAlignment="Center" VerticalAlignment="Center"
+                                       Foreground="{TemplateBinding Foreground}" TextAlignment="Center"
+                                       Margin="{TemplateBinding Padding}" />
+                        </Grid>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter Property="Opacity" Value="0.4" TargetName="Hover" />
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+    </UserControl.Resources>
+
+    <Grid>
+        <Border>
+            <Border.Background>
+                <ImageBrush ImageSource="pack://application:,,,/DinePlan.Presentation;component/Images/Splash.jpg"
+                            Stretch="UniformToFill" />
+            </Border.Background>
+        </Border>
+        <Border Background="#46586a" Opacity=".4" />
+        <Grid>
+
+            <UniformGrid Columns="1" VerticalAlignment="Center" Margin="{DynamicResource PanelMargin}"
+                         HorizontalAlignment="Right">
+                <controls:LoginButton x:Name="login" Command="{Binding CancelCommand}"
+                                      Style="{StaticResource LoginButtonStyle}" BorderThickness="0 0 0 0.5" />
+                <controls:LoginButton x:Name="employee" Style="{StaticResource AttendanceButton}" IsEnabled="False"
+                                      BorderThickness="0 0 0 0.5" />
+                <controls:LoginButton x:Name="exit" Command="{Binding ExitCommand}" Style="{StaticResource ExitButton}" />
+            </UniformGrid>
+
+            <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition />
+                        <RowDefinition Height="Auto" />
+                    </Grid.RowDefinitions>
+
+                    <Rectangle Style="{DynamicResource ShadownRectangle}" Grid.RowSpan="5" />
+                    <Rectangle RadiusY="{DynamicResource CornerRadius}" RadiusX="{DynamicResource CornerRadius}"
+                               Fill="{DynamicResource ControlBackgroundBrush}" Grid.RowSpan="5" />
+
+                    <Image Source="{Binding Logo}" Width="120" Margin="{DynamicResource PanelMargin}" />
+
+                    <Border Width="170" Height="170" CornerRadius="{DynamicResource BorderCornerRadius}"
+                            BorderThickness="1" BorderBrush="{DynamicResource ThemeBrush}" Grid.Row="1"
+                            Padding="{DynamicResource PanelMargin}" Margin="{DynamicResource PanelMargin}">
+                        <Image
+                            Source="pack://application:,,,/DinePlan.Infrastructure;component/Files/Icons/FingerPrint.png"
+                            HorizontalAlignment="Stretch" VerticalAlignment="Stretch" />
+                    </Border>
+
+                    <TextBlock Text="{Binding Message}" FontSize="14" Grid.Row="2" HorizontalAlignment="Center"
+                               Margin="{DynamicResource PanelMargin}" />
+
+                    <StackPanel Orientation="Vertical" Grid.Row="3" Visibility="{Binding EmployeeCodeVisibility}"
+                                HorizontalAlignment="Center">
+                        <TextBox Text="{Binding EmployeeCode, UpdateSourceTrigger=PropertyChanged}"
+                                 Style="{DynamicResource HeadingTextBox}" Margin="10" Padding="10" />
+
+                    </StackPanel>
+
+                    <StackPanel Grid.Row="3" Visibility="{Binding ControlVisibility}"
+                                Margin="{DynamicResource PanelMargin}">
+                        <UniformGrid Rows="1" HorizontalAlignment="Center">
+                            <TextBlock Text="{Binding CurrentEmployee.Code}" VerticalAlignment="Center" />
+                            <TextBlock Text="{Binding CurrentEmployee.Name}" VerticalAlignment="Center" />
+                        </UniformGrid>
+
+                        <UniformGrid Rows="1" HorizontalAlignment="Center" Margin="{DynamicResource PanelMargin}">
+                            <Button Command="{Binding TimeInCommand}" Content="{LocText TimeIn, IsUpper=True}"
+                                    Style="{DynamicResource ControlButton}" Background="#FFf78617" />
+                            <Button Command="{Binding TimeOutCommand}" Content="{LocText TimeOut, IsUpper=True}"
+                                    Style="{DynamicResource ControlButton}" Background="#FFf7ba17" />
+                            <Button Command="{Binding BreakInCommand}" Content="{LocText BreakIn, IsUpper=True}"
+                                    Style="{DynamicResource ControlButton}" Background="#FF385fb6" />
+                            <Button Command="{Binding BreakOutCommand}" Content="{LocText BreakOut, IsUpper=True}"
+                                    Style="{DynamicResource ControlButton}" Background="#FF21a5df" />
+                            <Button Command="{Binding PullEmployeeCommand}" Content="{LocText Pull, IsUpper=True}"
+                                    Style="{DynamicResource ControlButton}" Background="DarkSeaGreen" />
+                        </UniformGrid>
+                    </StackPanel>
+
+                    <UniformGrid Rows="1" Grid.Row="4" HorizontalAlignment="Center">
+                        <Button Command="{Binding EnterCodeCommand}" Content="{LocText OK}" MinWidth="200"
+                                MinHeight="80" Visibility="{Binding EmployeeCodeVisibility}"
+                                HorizontalAlignment="Center" />
+                        <Button Command="{Binding RescanCommand}" Content="{LocText Rescan, IsUpper=True}"
+                                MinWidth="200" MinHeight="80" Visibility="{Binding RescanVisibility}"
+                                HorizontalAlignment="Center" />
+                    </UniformGrid>
+                </Grid>
+            </StackPanel>
+
+        </Grid>
+        <Button Style="{DynamicResource KeboardButton}" 
+            Margin="5"
+            Height="20"
+            HorizontalAlignment="Left"
+            VerticalAlignment="Bottom"
+            Command="{Binding ShowKeyboardCommand}">
+            
+            <Image
+                Width="40"
+                Height="40"
+                Source="pack://application:,,,/DinePlan.Infrastructure;component/Files/Icons/Keyboard.png" />
+        </Button>
+    </Grid>
+</UserControl>
