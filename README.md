@@ -13,3 +13,7 @@ From neighbourhood favorites to fine dining restaurants, Dineplan can be fully c
 graphical subsystem : WPF
 Framework : Prism
 Database : MSSQL
+![dine0](https://github.com/Goran-Vukadinovic/WPF_DinePlan/assets/141262654/506ab858-bb4a-49cd-988e-ffd59663f866)
+![dine3](https://github.com/Goran-Vukadinovic/WPF_DinePlan/assets/141262654/bbb36b04-1874-417e-8d88-46b341ed9c5c)
+![dine1](https://github.com/Goran-Vukadinovic/WPF_DinePlan/assets/141262654/210c0400-f640-4a0e-8e4a-17316d353820)
+![dine2](https://github.com/Goran-Vukadinovic/WPF_DinePlan/assets/141262654/81659c49-f42d-45ad-870c-c940d929f36d)
