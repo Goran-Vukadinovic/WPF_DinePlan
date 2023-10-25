@@ -1,0 +1,186 @@
+﻿<UserControl x:Class="DinePlan.Modules.LoginModule.LoginView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" Focusable="True"
+             xmlns:controls="clr-namespace:DinePlan.Presentation.Controls.UIControls;assembly=DinePlan.Presentation.Controls"
+             xmlns:convert="clr-namespace:DinePlan.Presentation.Controls.Converters;assembly=DinePlan.Presentation.Controls"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             mc:Ignorable="d" 
+             PreviewTextInput="UserControl_PreviewTextInput" PreviewKeyDown="UserControl_PreviewKeyDown"
+             FontSize="{DynamicResource FontSizeL}" 
+             d:DesignHeight="700" d:DesignWidth="900">
+
+    <UserControl.Resources>
+        <Style TargetType="{x:Type Button}" x:Key="NumPadStyle">
+            <Setter Property="Height" Value="50" />
+            <Setter Property="Width" Value="100" />
+            <Setter Property="Margin" Value="4 15 4 15" />
+            <Setter Property="Padding" Value="{DynamicResource ItemMarginS}" />
+            <Setter Property="Foreground" Value="#0a0a0a" />
+            <Setter Property="BorderBrush" Value="{DynamicResource ThemeBrush}" />
+            <Setter Property="Background" Value="#f2f2f2" />
+            <Setter Property="BorderThickness" Value="0" />
+            <Setter Property="FontSize" Value="25" />
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate>
+                        <Grid>
+                            <Border Background="{TemplateBinding Background}"
+                                    BorderBrush="{TemplateBinding BorderBrush}"
+                                    BorderThickness="{TemplateBinding BorderThickness}"
+                                    CornerRadius="25" />
+                            <Border Background="{DynamicResource ThemeBrush}"
+                                    BorderBrush="{TemplateBinding BorderBrush}"
+                                    BorderThickness="{TemplateBinding BorderThickness}"
+                                    CornerRadius="25" x:Name="Hover" Opacity="0" />
+
+                            <TextBlock Text="{Binding Content, RelativeSource={RelativeSource Mode=TemplatedParent}}"
+                                       HorizontalAlignment="Center" VerticalAlignment="Center"
+                                       Foreground="{TemplateBinding Foreground}" FontWeight="Bold" />
+                        </Grid>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter Property="Opacity" Value="0.4" TargetName="Hover" />
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+        <Style TargetType="ScrollBar">
+            <Setter Property="Width" Value="30" />
+        </Style>
+        <Style TargetType="{x:Type TextBlock}" x:Key="HintTextStyle">
+            <Setter Property="HorizontalAlignment" Value="Center" />
+            <Setter Property="FontStyle" Value="Italic" />
+            <Setter Property="Foreground" Value="{DynamicResource ThemeBrush}" />
+        </Style>
+
+        <BooleanToVisibilityConverter x:Key="Bool2VisibilityConverter"></BooleanToVisibilityConverter>
+        <convert:AntiBooleanToVisibilityConverter x:Key="antiBool2VisibilityConverter"></convert:AntiBooleanToVisibilityConverter>
+    </UserControl.Resources>
+
+    <Grid>
+        <Border>
+            <Border.Background>
+                <ImageBrush ImageSource="pack://application:,,,/DinePlan.Presentation;component/Images/Splash.jpg"
+                            Stretch="UniformToFill" />
+            </Border.Background>
+        </Border>
+        <Border Background="#46586a" Opacity=".55" />
+        <Grid>
+            <UniformGrid Columns="1" VerticalAlignment="Center" HorizontalAlignment="Right">
+                <controls:LoginButton x:Name="login" Style="{StaticResource LoginButtonStyle}" IsEnabled="False" Visibility="{Binding ShowMultipleDatabaseSelector,Converter={StaticResource antiBool2VisibilityConverter}}"/>
+                <controls:LoginButton x:Name="employee" Command="{Binding EmployeeCommand}" Visibility="{Binding ShowMultipleDatabaseSelector,Converter={StaticResource antiBool2VisibilityConverter}}"
+                                      Style="{StaticResource AttendanceButton}" />
+                <controls:LoginButton x:Name="changeDatabase" Command="{Binding ChangeDatabaseCommand}"
+                                      Style="{StaticResource ChangeDatabaseButton}" Visibility="{Binding ShowRefreshMultipleDatabaseSelector,Converter={StaticResource Bool2VisibilityConverter}}"/>
+                <controls:LoginButton x:Name="exit" Command="{Binding ExitCommand}" Style="{StaticResource ExitButton}" />
+                <controls:LoginButton x:Name="shutdown" Command="{Binding ShutdownCommand}"
+                                      Style="{StaticResource ShutdownButton}" />
+                
+
+            </UniformGrid>
+
+            <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
+                <Grid>
+                    <Border CornerRadius="20" Background="{StaticResource ControlBackgroundBrush}" />
+
+                    <StackPanel Orientation="Vertical" Margin="16,16,16,25" HorizontalAlignment="Center" Visibility="{Binding ShowMultipleDatabaseSelector,Converter={StaticResource antiBool2VisibilityConverter}}">
+                        <Image Source="{Binding Logo}" Width="120" Margin="{DynamicResource PanelMargin}" />
+
+                        <Border BorderThickness="1" BorderBrush="{StaticResource ControlBorderBrush}" CornerRadius="25"
+                                Margin="15 20 15 0" Width="370" Height="60">
+                            <Grid>
+                                <TextBlock Text="{LocText EnterPin}" Foreground="{StaticResource ControlBorderBrush}"
+                                           FontSize="25" HorizontalAlignment="Center" VerticalAlignment="Center"
+                                           TextAlignment="Center">
+                                    <TextBlock.Style>
+                                        <Style TargetType="{x:Type TextBlock}">
+                                            <Setter Property="Visibility" Value="Collapsed" />
+                                            <Style.Triggers>
+                                                <DataTrigger Binding="{Binding HiddenPinText}" Value="">
+                                                    <Setter Property="Visibility" Value="Visible" />
+                                                </DataTrigger>
+                                            </Style.Triggers>
+                                        </Style>
+                                    </TextBlock.Style>
+                                </TextBlock>
+                                <TextBlock Text="{Binding HiddenPinText}"
+                                           Foreground="{StaticResource ControlBorderBrush}" FontSize="25"
+                                           HorizontalAlignment="Center" TextAlignment="Center"
+                                           VerticalAlignment="Center" />
+                            </Grid>
+                        </Border>
+
+                        <StackPanel Orientation="Vertical" Margin="16 5 16 5">
+                            <TextBlock Text="{Binding AdminPasswordHint}" Foreground="White"
+                                       Style="{StaticResource HintTextStyle}" />
+                            <TextBlock Text="{Binding Message}" Style="{StaticResource HintTextStyle}" />
+                        </StackPanel>
+
+                        <UniformGrid Columns="3">
+                            <Button Name="Button1" Style="{StaticResource NumPadStyle}" Focusable="True"
+                                    Command="{Binding NumPadCommand}" Content="1" CommandParameter="1" />
+                            <Button Name="Button2" Style="{StaticResource NumPadStyle}"
+                                    Command="{Binding NumPadCommand}" Content="2" CommandParameter="2" />
+                            <Button Name="Button3" Style="{StaticResource NumPadStyle}"
+                                    Command="{Binding NumPadCommand}" Content="3" CommandParameter="3" />
+                            <Button Name="Button4" Style="{StaticResource NumPadStyle}"
+                                    Command="{Binding NumPadCommand}" Content="4" CommandParameter="4" />
+                            <Button Name="Button5" Style="{StaticResource NumPadStyle}"
+                                    Command="{Binding NumPadCommand}" Content="5" CommandParameter="5" />
+                            <Button Name="Button6" Style="{StaticResource NumPadStyle}"
+                                    Command="{Binding NumPadCommand}" Content="6" CommandParameter="6" />
+                            <Button Name="Button7" Style="{StaticResource NumPadStyle}"
+                                    Command="{Binding NumPadCommand}" Content="7" CommandParameter="7" />
+                            <Button Name="Button8" Style="{StaticResource NumPadStyle}"
+                                    Command="{Binding NumPadCommand}" Content="8" CommandParameter="8" />
+                            <Button Name="Button9" Style="{StaticResource NumPadStyle}"
+                                    Command="{Binding NumPadCommand}" Content="9" CommandParameter="9" />
+                            <Button Name="ButtonC" Style="{StaticResource NumPadStyle}"
+                                    Command="{Binding ClearPinCommand}" Content="C" Foreground="#ee434a" />
+                            <Button Name="Button0" Style="{StaticResource NumPadStyle}"
+                                    Command="{Binding NumPadCommand}" Content="0" CommandParameter="0" />
+                            <Button Name="SubmitButton" Style="{StaticResource NumPadStyle}"
+                                    Command="{Binding SubmitPinCommand}" Content=">>" Foreground="White"
+                                    Background="#36cb61" />
+                        </UniformGrid>
+                    </StackPanel>
+                    
+                    <!--Multiple database selector-->
+                    <StackPanel Orientation="Vertical" Margin="16,16,16,25" Width="400" HorizontalAlignment="Center" Visibility="{Binding ShowMultipleDatabaseSelector,Converter={StaticResource Bool2VisibilityConverter},FallbackValue=Collapsed}">
+                        <Image Source="{Binding Logo}" Width="120" Margin="{DynamicResource PanelMargin}" />
+                        <TextBlock Text="{LocText SelectDatabase}" Margin="0 20 0 20" Foreground="#0a0a0a"
+                                           FontSize="25" HorizontalAlignment="Center" VerticalAlignment="Center"
+                                           TextAlignment="Center"></TextBlock>
+                        <ListView x:Name="PART_DatabaseListView" ItemsSource="{Binding DatabaseNames}" Margin="15" BorderThickness="0" MaxHeight="250" ScrollViewer.HorizontalScrollBarVisibility="Hidden" ScrollViewer.VerticalScrollBarVisibility="Auto" SelectionMode="Single">
+                            <ListView.ItemTemplate>
+                                <DataTemplate>
+                                    <StackPanel Orientation="Horizontal" Margin="10">
+                                        <Viewbox Height="30" Width="30">
+                                            <Path Fill="#0a0a0a" Stretch="Fill" Data="M512 960c-212.032 0-384-57.376-384-128 0-38.624 0-80.864 0-128 0-11.136 5.568-21.696 13.568-32 42.816 55.136 191.68 96 370.432 96s327.616-40.864 370.432-96c8 10.304 13.568 20.864 13.568 32 0 37.056 0 76.384 0 128 0 70.624-172 128-384 128zM512 704c-212.032 0-384-57.376-384-128 0-38.656 0-80.832 0-128 0-6.784 2.56-13.376 6.016-19.904l0 0c1.952-4.096 4.512-8.128 7.552-12.096 42.816 55.104 191.68 96 370.432 96s327.616-40.896 370.432-96c3.072 3.968 5.632 8 7.552 12.096l0 0c3.424 6.528 6.016 13.12 6.016 19.904 0 37.056 0 76.352 0 128 0 70.624-172 128-384 128zM512 448c-212.032 0-384-57.344-384-128 0-20.224 0-41.6 0-64 0-20.352 0-41.472 0-64 0-70.656 171.968-128 384-128s384 57.344 384 128c0 19.968 0 41.152 0 64 0 19.584 0 40.256 0 64 0 70.656-172 128-384 128zM512 128c-141.376 0-256 28.608-256 64s114.624 64 256 64 256-28.608 256-64-114.624-64-256-64z"></Path>
+                                        </Viewbox>
+                                        <TextBlock Margin="15 0 0 0" Foreground="#0a0a0a" Text="{Binding }"></TextBlock>
+                                    </StackPanel>
+                                </DataTemplate>
+                            </ListView.ItemTemplate>
+                        </ListView>
+                        <Button Style="{StaticResource NumPadStyle}" Margin="0 20 0 0" Width="160"
+                                    Command="{Binding DatabaseConnectCommand}" CommandParameter="{Binding SelectedItem,ElementName=PART_DatabaseListView}"
+                                    Content="{LocText Connect}" Foreground="White"
+                                    Background="#36cb61" />
+                    </StackPanel>
+                    
+                </Grid>
+
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Visibility="{Binding ShowMultipleDatabaseSelector,Converter={StaticResource antiBool2VisibilityConverter}}"
+                            Margin="{DynamicResource PanelMargin}">
+                    <Image
+                        Source="pack://application:,,,/DinePlan.Infrastructure;component/Files/Icons/FingerprintS.png"
+                        HorizontalAlignment="Center" VerticalAlignment="Center" Height="40" />
+                </StackPanel>
+            </StackPanel>
+        </Grid>
+    </Grid>
+</UserControl>

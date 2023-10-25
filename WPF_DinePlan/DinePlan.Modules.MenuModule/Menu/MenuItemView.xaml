@@ -1,0 +1,359 @@
+﻿<UserControl x:Class="DinePlan.Modules.MenuModule.MenuItemView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:UIControls="clr-namespace:DinePlan.Presentation.Controls.UIControls;assembly=DinePlan.Presentation.Controls"
+             xmlns:iconPacks="http://metro.mahapps.com/winfx/xaml/iconpacks"
+             xmlns:MetroControls="clr-namespace:MahApps.Metro.Controls;assembly=MahApps.Metro"
+             xmlns:pt="http://propertytools.codeplex.com"
+             mc:Ignorable="d">
+    <UserControl.Resources>
+    </UserControl.Resources>
+    <ScrollViewer UIControls:KineticBehaviour.HandleKineticScrolling="True" VerticalScrollBarVisibility="Auto">
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*" />
+                <RowDefinition Height="auto" />
+            </Grid.RowDefinitions>
+            <Border Style="{StaticResource ContentBorder}">
+                <ScrollViewer>
+                    <Grid Margin="5">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                        </Grid.RowDefinitions>
+                        <DockPanel Grid.Row="0" LastChildFill="False">
+                            <MetroControls:MetroHeader Header="{LocText ProductName, Suffix=':'}"
+                                                       Margin="{StaticResource ControlMargin}">
+                                <MetroControls:MetroHeader.HeaderTemplate>
+                                    <DataTemplate>
+                                        <StackPanel VerticalAlignment="Center" Orientation="Horizontal">
+                                            <TextBlock Style="{StaticResource ContentLabelMetro}"
+                                                       VerticalAlignment="Center"
+                                                       Text="{Binding}" />
+                                        </StackPanel>
+                                    </DataTemplate>
+                                </MetroControls:MetroHeader.HeaderTemplate>
+                                <TextBox Text="{Binding Name,Mode=TwoWay}" Style="{StaticResource HeadingTextBoxMetro}" />
+                            </MetroControls:MetroHeader>
+                        </DockPanel>
+                        <Grid Grid.Row="1">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto" />
+                                <RowDefinition Height="Auto" />
+                                <RowDefinition Height="Auto" />
+                                <RowDefinition Height="Auto" />
+                                <RowDefinition Height="Auto" />
+
+                            </Grid.RowDefinitions>
+                            <Border Grid.Row="0" Style="{StaticResource ContentBorder}">
+                                <Grid>
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="Auto" />
+                                        <RowDefinition Height="Auto" />
+                                        <RowDefinition Height="Auto" />
+                                        <RowDefinition Height="Auto" />
+                                        <RowDefinition Height="Auto" />
+                                        <RowDefinition Height="Auto" />
+
+                                    </Grid.RowDefinitions>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="Auto" />
+                                        <ColumnDefinition Width="Auto" />
+                                        <ColumnDefinition Width="*" />
+                                        <ColumnDefinition Width="*" />
+                                    </Grid.ColumnDefinitions>
+                                    <MetroControls:MetroHeader Header="{LocText AliasName, Suffix=':'}" Grid.Column="0"
+                                                               Grid.Row="0" Margin="{StaticResource ControlMargin}">
+                                        <MetroControls:MetroHeader.HeaderTemplate>
+                                            <DataTemplate>
+                                                <StackPanel VerticalAlignment="Center" Orientation="Horizontal">
+                                                    <TextBlock Style="{StaticResource ContentLabelMetro}"
+                                                               VerticalAlignment="Center"
+                                                               Text="{Binding}" />
+                                                </StackPanel>
+                                            </DataTemplate>
+                                        </MetroControls:MetroHeader.HeaderTemplate>
+                                        <TextBox Text="{Binding AliasName,Mode=TwoWay}"
+                                                 Style="{StaticResource ContentTextBoxMetro}" />
+                                    </MetroControls:MetroHeader>
+
+                                    <MetroControls:MetroHeader Header="{LocText AliasCode, Suffix=':'}" Grid.Column="1"
+                                                               Grid.Row="0" Margin="{StaticResource ControlMargin}">
+                                        <MetroControls:MetroHeader.HeaderTemplate>
+                                            <DataTemplate>
+                                                <StackPanel VerticalAlignment="Center" Orientation="Horizontal">
+                                                    <TextBlock Style="{StaticResource ContentLabelMetro}"
+                                                               VerticalAlignment="Center"
+                                                               Text="{Binding}" />
+                                                </StackPanel>
+                                            </DataTemplate>
+                                        </MetroControls:MetroHeader.HeaderTemplate>
+                                        <TextBox Text="{Binding AliasCode,Mode=TwoWay}"
+                                                 Style="{StaticResource ContentTextBoxMetro}" />
+                                    </MetroControls:MetroHeader>
+
+                                    <MetroControls:MetroHeader Header="{LocText Barcode, Suffix=':'}" Grid.Column="0"
+                                                               Grid.Row="1" Margin="{StaticResource ControlMargin}">
+                                        <MetroControls:MetroHeader.HeaderTemplate>
+                                            <DataTemplate>
+                                                <StackPanel VerticalAlignment="Center" Orientation="Horizontal">
+                                                    <TextBlock Style="{StaticResource ContentLabelMetro}"
+                                                               VerticalAlignment="Center"
+                                                               Text="{Binding}" />
+                                                </StackPanel>
+                                            </DataTemplate>
+                                        </MetroControls:MetroHeader.HeaderTemplate>
+                                        <TextBox Text="{Binding Barcode, Mode=TwoWay}"
+                                                 Style="{StaticResource ContentTextBoxMetro}" />
+                                    </MetroControls:MetroHeader>
+
+                                    <MetroControls:MetroHeader Header="{LocText GroupCode, Suffix=':'}" Grid.Column="1"
+                                                               Grid.Row="1" Margin="{StaticResource ControlMargin}">
+                                        <MetroControls:MetroHeader.HeaderTemplate>
+                                            <DataTemplate>
+                                                <StackPanel VerticalAlignment="Center" Orientation="Horizontal">
+                                                    <TextBlock Style="{StaticResource ContentLabelMetro}"
+                                                               VerticalAlignment="Center"
+                                                               Text="{Binding}" />
+                                                </StackPanel>
+                                            </DataTemplate>
+                                        </MetroControls:MetroHeader.HeaderTemplate>
+                                        <ComboBox Text="{Binding GroupCode,Mode=TwoWay}"
+                                                  ItemsSource="{Binding GroupCodes}" IsEditable="True"
+                                                  Style="{StaticResource ContentComboMetro}" />
+                                    </MetroControls:MetroHeader>
+
+
+                                    <MetroControls:MetroHeader Header="{LocText Tag, Suffix=':'}" Grid.Column="0"
+                                                               Grid.Row="2" Margin="{StaticResource ControlMargin}">
+                                        <MetroControls:MetroHeader.HeaderTemplate>
+                                            <DataTemplate>
+                                                <StackPanel VerticalAlignment="Center" Orientation="Horizontal">
+                                                    <TextBlock Style="{StaticResource ContentLabelMetro}"
+                                                               VerticalAlignment="Center"
+                                                               Text="{Binding}" />
+                                                </StackPanel>
+                                            </DataTemplate>
+                                        </MetroControls:MetroHeader.HeaderTemplate>
+                                        <ComboBox Text="{Binding Tag,Mode=TwoWay}"
+                                                  ItemsSource="{Binding Tags}" IsEditable="True"
+                                                  Style="{StaticResource ContentComboMetro}" />
+                                    </MetroControls:MetroHeader>
+
+
+                                    <MetroControls:MetroHeader Header="{LocText Courses, Suffix=':'}" Grid.Column="1"
+                                                               Grid.Row="2" Margin="{StaticResource ControlMargin}">
+                                        <MetroControls:MetroHeader.HeaderTemplate>
+                                            <DataTemplate>
+                                                <StackPanel VerticalAlignment="Center" Orientation="Horizontal">
+                                                    <TextBlock Style="{StaticResource ContentLabelMetro}"
+                                                               VerticalAlignment="Center"
+                                                               Text="{Binding}" />
+                                                </StackPanel>
+                                            </DataTemplate>
+                                        </MetroControls:MetroHeader.HeaderTemplate>
+                                        <ComboBox IsEditable="True"
+                                                  SelectedValue="{Binding CourseId}" SelectedValuePath="Id"
+                                                  ItemsSource="{Binding Courses}" DisplayMemberPath="Name"
+                                                  Style="{StaticResource ContentComboMetro}" />
+                                    </MetroControls:MetroHeader>
+
+                                    <MetroControls:MetroHeader Header="{LocText Image, Suffix=:}" Grid.Column="0"
+                                                               Grid.Row="3" Grid.ColumnSpan="2"
+                                                               Margin="{StaticResource ControlMargin}">
+                                        <MetroControls:MetroHeader.HeaderTemplate>
+                                            <DataTemplate>
+                                                <StackPanel VerticalAlignment="Center" Orientation="Horizontal">
+                                                    <TextBlock Style="{StaticResource ContentLabelMetro}"
+                                                               VerticalAlignment="Center"
+                                                               Text="{Binding}" />
+                                                </StackPanel>
+                                            </DataTemplate>
+                                        </MetroControls:MetroHeader.HeaderTemplate>
+                                        <pt:FilePicker FilePath="{Binding RefImagePath, Mode=TwoWay}"
+                                                       Style="{StaticResource ContentFilePickerMetro}" />
+                                    </MetroControls:MetroHeader>
+
+                                    <MetroControls:MetroHeader Header="{LocText Description, Suffix=':'}"
+                                                               Grid.Column="0" Grid.Row="4" Grid.ColumnSpan="2"
+                                                               Margin="{StaticResource ControlMargin}">
+                                        <MetroControls:MetroHeader.HeaderTemplate>
+                                            <DataTemplate>
+                                                <StackPanel VerticalAlignment="Center" Orientation="Horizontal">
+                                                    <TextBlock Style="{StaticResource ContentLabelMetro}"
+                                                               VerticalAlignment="Center"
+                                                               Text="{Binding}" />
+                                                </StackPanel>
+                                            </DataTemplate>
+                                        </MetroControls:MetroHeader.HeaderTemplate>
+                                        <TextBox Text="{Binding ItemDesc,Mode=TwoWay}"
+                                                 VerticalScrollBarVisibility="Visible"
+                                                 Style="{StaticResource ContentTextBoxMetro}" TextWrapping="Wrap"
+                                                 AcceptsReturn="True" SpellCheck.IsEnabled="True" />
+                                    </MetroControls:MetroHeader>
+
+                                    <Grid Grid.Row="5" Grid.ColumnSpan="4">
+                                        <Grid.RowDefinitions>
+                                            <RowDefinition Height="Auto" />
+                                            <RowDefinition Height="Auto" />
+                                            <RowDefinition Height="Auto" />
+                                            <RowDefinition Height="Auto" />
+                                        </Grid.RowDefinitions>
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="Auto" />
+                                            <ColumnDefinition Width="Auto" />
+                                            <ColumnDefinition Width="Auto" />
+                                            <ColumnDefinition Width="Auto" />
+                                        </Grid.ColumnDefinitions>
+                                        <MetroControls:ToggleSwitch OffLabel="Off" OnLabel="On"
+                                                                    Style="{StaticResource MahApps.Metro.Styles.ToggleSwitch.Win10}"
+                                                                    Margin="{StaticResource ControlMargin}"
+                                                                    Grid.Row="0" Grid.Column="0"
+                                                                    IsChecked="{Binding ForceQuantity}"
+                                                                    Header="{LocText ForceQuantity}" />
+
+                                        <MetroControls:ToggleSwitch OffLabel="Off" OnLabel="On"
+                                                                    Style="{StaticResource MahApps.Metro.Styles.ToggleSwitch.Win10}"
+                                                                    Margin="{StaticResource ControlMargin}"
+                                                                    Grid.Row="0"
+                                                                    Grid.Column="1"
+                                                                    IsChecked="{Binding ForceChangePrice}"
+                                                                    Header="{LocText ForceChangePrice}" />
+
+                                        <MetroControls:ToggleSwitch OffLabel="Off" OnLabel="On"
+                                                                    Style="{StaticResource MahApps.Metro.Styles.ToggleSwitch.Win10}"
+                                                                    Margin="{StaticResource ControlMargin}"
+                                                                    Grid.Row="0"
+                                                                    Grid.Column="2"
+                                                                    IsChecked="{Binding IsCombo}"
+                                                                    Header="{LocText ComboProduct}" />
+                                    </Grid>
+                                </Grid>
+                            </Border>
+                            <Border Grid.Row="1" BorderThickness="1">
+                                <Grid>
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="Auto" />
+                                        <RowDefinition Height="*" />
+                                    </Grid.RowDefinitions>
+                                    <StackPanel Grid.Row="0" Margin="10" Orientation="Horizontal"
+                                                Style="{StaticResource BottomStackPanel}">
+                                        <TextBlock Margin="2,3">
+                                            <Hyperlink Command="{Binding AddPortionCommand}">
+                                                <TextBlock Text="{Binding Path=AddPortionCommand.Caption}" />
+                                            </Hyperlink>
+                                        </TextBlock>
+                                        <TextBlock Margin="2,3">
+                                            <Hyperlink Command="{Binding DeletePortionCommand}">
+                                                <TextBlock Text="{Binding Path=DeletePortionCommand.Caption}" />
+                                            </Hyperlink>
+                                        </TextBlock>
+                                    </StackPanel>
+                                    <DataGrid Grid.Row="1" ItemsSource="{Binding Portions}"
+                                              SelectedItem="{Binding SelectedPortion, Mode=TwoWay}"
+                                              CellEditEnding="DataGrid_CellEditEnding"
+                                              Style="{StaticResource DataGridManagementStyleMetro}"
+                                              Margin="{StaticResource ControlMargin}">
+                                        <DataGrid.Columns>
+                                            <DataGridTextColumn Header="{LocText Portion}"
+                                                                Binding="{Binding Name}" Width="*" />
+                                            <DataGridTextColumn Header="{LocText Multiplier}"
+                                                                Binding="{Binding Path=Multiplier,StringFormat='#,##.#####'}" />
+                                            <DataGridTextColumn Header="{LocText Price}" Width="*"
+                                                                Binding="{Binding Path=Price,StringFormat='#,#0.00####'}"
+                                                                CellStyle="{StaticResource CenterAlignedGridCell}" />
+                                            <DataGridTextColumn Header="{LocText Cost}" Width="*"
+                                                                Binding="{Binding Path=CostPrice,StringFormat='#,#0.00####'}"
+                                                                CellStyle="{StaticResource CenterAlignedGridCell}" />
+                                            <DataGridTextColumn Header="{LocText PreparationTime}" Width="*"
+                                                                Binding="{Binding Path=PreparationTime}"
+                                                                CellStyle="{StaticResource CenterAlignedGridCell}" />
+                                            <DataGridTextColumn Header="{LocText NumberOfPax}" Width="*"
+                                                                Binding="{Binding Path=NumberOfPax}"
+                                                                CellStyle="{StaticResource CenterAlignedGridCell}" />
+                                        </DataGrid.Columns>
+                                        <DataGrid.ContextMenu>
+                                            <ContextMenu>
+                                                <MenuItem Command="{Binding AddPortionCommand}"
+                                                          Header="{Binding AddPortionCommand.Caption}" />
+                                                <MenuItem Command="{Binding DeletePortionCommand}"
+                                                          Header="{Binding DeletePortionCommand.Caption}" />
+                                            </ContextMenu>
+                                        </DataGrid.ContextMenu>
+                                    </DataGrid>
+                                </Grid>
+                            </Border>
+                            <Border BorderBrush="CadetBlue" BorderThickness="1" Grid.Row="2"
+                                    Visibility="{Binding IsCustomTagEditorVisible,Converter={StaticResource VisibilityConverter}}">
+                                <StackPanel Style="{StaticResource BottomStackPanel}">
+                                    <ItemsControl Grid.IsSharedSizeScope="True"
+                                                  ItemsSource="{Binding MenuItemTags}">
+                                        <ItemsControl.ItemTemplate>
+                                            <DataTemplate>
+                                                <Grid Margin="0,4,0,0">
+                                                    <Grid.ColumnDefinitions>
+                                                        <ColumnDefinition Width="Auto" SharedSizeGroup="TagLabel" />
+                                                        <ColumnDefinition Width="*" />
+                                                    </Grid.ColumnDefinitions>
+                                                    <Label Grid.Column="0" Content="{Binding TagNameDisplay}"
+                                                           Style="{StaticResource ContentLabel}" />
+                                                    <ComboBox Grid.Row="0" Grid.Column="3"
+                                                              Text="{Binding TagValue,Mode=TwoWay}"
+                                                              ItemsSource="{Binding TagValues}" IsEditable="True"
+                                                              Style="{StaticResource ContentCombo}" />
+                                                </Grid>
+                                            </DataTemplate>
+                                        </ItemsControl.ItemTemplate>
+                                    </ItemsControl>
+                                </StackPanel>
+                            </Border>
+                        </Grid>
+                    </Grid>
+                </ScrollViewer>
+            </Border>
+            <DockPanel Grid.Row="1">
+                <StackPanel Orientation="Horizontal">
+                    <Button Style="{StaticResource ManagementButtonStyleMetro}" Command="{Binding SaveCommand}"
+                            Margin="{StaticResource ControlMargin}"
+                            Content="{Binding SaveCommand.Caption}">
+                        <Button.ContentTemplate>
+                            <DataTemplate>
+                                <StackPanel Orientation="Horizontal">
+                                    <iconPacks:PackIconMaterial Kind="ContentSave" Foreground="White"
+                                                                Margin="2 2 10 2"
+                                                                Width="16"
+                                                                Height="16"
+                                                                VerticalAlignment="Center" />
+                                    <TextBlock Text="{Binding}"
+                                               Margin="2 2 2 2"
+                                               VerticalAlignment="Center" />
+                                </StackPanel>
+                            </DataTemplate>
+                        </Button.ContentTemplate>
+                    </Button>
+                    <Button Style="{StaticResource ManagementButtonStyleMetro}" Command="{Binding Path=CloseCommand}"
+                            Margin="{StaticResource ControlMargin}"
+                            Content="{LocText Close}">
+                        <Button.ContentTemplate>
+                            <DataTemplate>
+                                <StackPanel Orientation="Horizontal">
+                                    <iconPacks:PackIconMaterial Kind="Close" Foreground="White"
+                                                                Margin="2 2 10 2"
+                                                                Width="16"
+                                                                Height="16"
+                                                                VerticalAlignment="Center" />
+                                    <TextBlock Text="{Binding}"
+                                               Margin="2 2 2 2"
+                                               VerticalAlignment="Center" />
+                                </StackPanel>
+                            </DataTemplate>
+                        </Button.ContentTemplate>
+                    </Button>
+                </StackPanel>
+                <Label Content="{Binding Error}" Foreground="Red" Style="{StaticResource ContentLabel}" />
+            </DockPanel>
+        </Grid>
+    </ScrollViewer>
+</UserControl>
